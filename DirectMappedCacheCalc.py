@@ -33,7 +33,7 @@ def printCache(data = -1):
     for no,i in enumerate(cache):
         if no == data:
             # print('this Ran')
-            print(colors.HIGHLIGHT + f"Line {no}: [{hex(i[0])},{hex(i[1])}]" + bcolors.ENDC)
+            print(colors.HIGHLIGHT + f"Line {no}: [{hex(i[0])},{hex(i[1])}]" + colors.ENDC)
         elif i:
             print(f"Line {no}: [{hex(i[0])},{hex(i[1])}]")
         else:
