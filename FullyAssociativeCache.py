@@ -2,22 +2,22 @@ from math import inf
 class colors:
     HIGHLIGHT = '\033[93m'
     ENDC = '\033[0m'
-def FullyAssociativeCache():
-    cacheLines = int(input('No. C`ache Lines: '))
-    print('---------------------------')
-    cache = []
-    for i in range(cacheLines):
-        cache.append(None)
 
-    def printCache(data = -1):
+def printCache(data,cache):
         for no,i in enumerate(cache):
             if i and data.lower() == i[0].lower():
                 print(colors.HIGHLIGHT + f"Line {no}: {i}" + colors.ENDC)
             else:
                 print(f"Line {no}: {i}")
         print()
-    localGlobalCounter = 1
+    
 
+def FullyAssociativeCache():
+    cacheLines = int(input('No. Cache Lines: '))
+    print('---------------------------')
+    cache = [None for i in range(cacheLines)]
+
+    localGlobalCounter = 1
     while True:    
         try:
             temp = input('Enter Address: ')
@@ -45,9 +45,10 @@ def FullyAssociativeCache():
                 print('Miss')
                 cache[lowest_counter[0]] = [temp,localGlobalCounter]
                 localGlobalCounter +=1
-            printCache(temp)
+            printCache(temp,cache)
 
         except Exception as e:
             print(e)
+
 if __name__ == "__main__":
     FullyAssociativeCache()

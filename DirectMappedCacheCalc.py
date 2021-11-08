@@ -4,6 +4,16 @@ class colors:
     HIGHLIGHT = '\033[93m'
     ENDC = '\033[0m'
 
+def printCache(data,cache):
+        for no,i in enumerate(cache):
+            if no == data:
+                print(colors.HIGHLIGHT + f"Line {no}: [{hex(i[0])},{hex(i[1])}]" + colors.ENDC)
+            elif i:
+                print(f"Line {no}: [{hex(i[0])},{hex(i[1])}]")
+            else:
+                print(f"Line {no}: {i}")
+        print()
+
 def DirectlyMappedCache():
     while True:
         try:
@@ -23,30 +33,16 @@ def DirectlyMappedCache():
                 print(f'Data in Cache (bytes): {cacheLines*words*wordBytes} or 2^{math.log(cacheLines*words*wordBytes,2)}')
                 break
             elif Mode == 2:
-                addressBus = int(input('Address Bus (bits): '))
-                offset = int(input('Offset: '))
-                index = int(input('Index: '))
-                tag = int(input('tag: '))
+                addressBus =    int(input('Address Bus (bits): '))
+                offset =        int(input('Offset: '))
+                index =         int(input('Index:  '))
+                tag =           int(input('tag:    '))
                 cacheLines = 2**index
                 break
         except Exception as e:
             print('Invalid Input, Please Try Again')
             
-
-
-    cache = []
-    for i in range(cacheLines):
-        cache.append(None)
-
-    def printCache(data = -1):
-        for no,i in enumerate(cache):
-            if no == data:
-                print(colors.HIGHLIGHT + f"Line {no}: [{hex(i[0])},{hex(i[1])}]" + colors.ENDC)
-            elif i:
-                print(f"Line {no}: [{hex(i[0])},{hex(i[1])}]")
-            else:
-                print(f"Line {no}: {i}")
-        print()
+    cache = [None for i in range(cacheLines)]
 
     while True:
         try:
