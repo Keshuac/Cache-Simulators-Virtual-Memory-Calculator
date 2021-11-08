@@ -13,7 +13,7 @@ python FullyAssociativeCache.py
 python VirtualPageCalc.py
 ```
 
-##Direct Mapped Cache Modes,
+## Direct Mapped Cache Modes,
 **Both Modes will start the simulator**
 Mode 1: Calculate the parameters of the simulator given the
 1. Number of Cache Lines
@@ -27,7 +27,7 @@ Mode 2: Start Simulator given the
 3. Index    (bits)
 4. Tag      (bits)
 
-##Exiting Programs
+## Exiting Programs
 When inputting Memory Addresses, instead input
 ```shell
 exit
